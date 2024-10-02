@@ -1,9 +1,9 @@
 # Tilawah Server 📖🚀
 
-![Node.js](https://img.shields.io/badge/Node.js-v16.0.0-green?style=for-the-badge&logo=node.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-v4.5-blue?style=for-the-badge&logo=typescript)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-v13-316192?style=for-the-badge&logo=postgresql)
-![Express.js](https://img.shields.io/badge/Express.js-v4.17.1-lightgrey?style=for-the-badge&logo=express)
+![Node.js](https://img.shields.io/badge/Node.js-v20.17.0-green?style=for-the-badge&logo=node.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-v5.6-blue?style=for-the-badge&logo=typescript)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-v17-316192?style=for-the-badge&logo=postgresql)
+![Express.js](https://img.shields.io/badge/Express.js-v4.21.0-lightgrey?style=for-the-badge&logo=express)
 
 Tilawah Server is a scalable backend server designed for managing content related to Quran recitation, using Node.js, TypeScript, and PostgreSQL for handling data storage, logic, and routing.
 

@@ -33,3 +33,10 @@ Thumbs.db
 
 # TypeScript Cache
 *.tsbuildinfo
+
+# .env.* files except .env.example
+!.env.example
+.env.*
+
+# migrations
+migrations/
