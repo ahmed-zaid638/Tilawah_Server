@@ -8,11 +8,14 @@
     "dev": "nodemon src/server.ts",
     "start": "ts-node src/server.ts",
     "build": "",
-    "ci-setup": "make db-ci",
-    "db:create": "yarn dlx run-pg-sql postgres ./migrations/setup/db_setup.sql",
+    "db-dev-start": "make dev-db-docker",
+    "db-dev-stop": "make dev-db-docker-delete",
+    "db-ci": "make db-ci",
+    "db:drop": "make db-drop",
     "migration:apply": "db-migrate --config migrations/db-migrate.json up",
     "migration:undo": "db-migrate --config migrations/db-migrate.json down",
-    "migration:create": "db-migrate --config migrations/db-migrate.json create"
+    "migration:create": "db-migrate --config migrations/db-migrate.json create",
+    "migration:drop": "db-migrate --config migrations/db-migrate.json db:drop"
   },
   "keywords": [],
   "author": "",
