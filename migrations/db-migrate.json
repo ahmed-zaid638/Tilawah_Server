@@ -1,0 +1,11 @@
+{
+  "defaultEnv": "development",
+  "development": {
+    "driver": "pg",
+    "user": "dbowner",
+    "password": "onlyindev",
+    "host": "localhost",
+    "database": "tilawah"
+  },
+  "sql-file": true
+}
