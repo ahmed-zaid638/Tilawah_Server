@@ -1,0 +1,17 @@
+openapi: 3.0.1
+info:
+  title: Tilawah app
+  description: Tialwah app
+  license:
+    name: <TBD>
+  version: 0.0.1
+servers:
+  - url: http://Tialwahapp.com
+paths:
+  /users/login:
+    $ref: ./paths/users_login.yaml
+  /users:
+    $ref: ./paths/users.yaml
+  /users/{user_uuid}:
+    $ref: ./paths/user_uuid.yaml
+# ABed alhameed social login

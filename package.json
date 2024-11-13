@@ -7,7 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/server.ts",
     "start": "ts-node src/server.ts",
-    "build": ""
+    "build": "",
+    "db-dev-start": "make dev-db-docker",
+    "db-dev-stop": "make dev-db-docker-delete",
+    "db-ci": "make db-ci",
+    "db:drop": "make db-drop",
+    "migration:apply": "db-migrate --config migrations/db-migrate.json up",
+    "migration:undo": "db-migrate --config migrations/db-migrate.json down",
+    "migration:create": "db-migrate --config migrations/db-migrate.json create",
+    "migration:drop": "db-migrate --config migrations/db-migrate.json db:drop"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +24,7 @@
     "bcryptjs": "^2.4.3",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
+    "dlx": "^0.2.1",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "google-auth-library": "^9.14.1",
@@ -38,8 +47,12 @@
     "@types/node": "^22.7.4",
     "@types/pg": "^8.11.10",
     "@types/validator": "^13.12.2",
+    "db-migrate": "^0.11.14",
+    "db-migrate-pg": "^1.5.2",
     "nodemon": "^3.1.7",
     "sequelize-cli": "^6.6.2",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.2",
+    "vitest": "^2.1.3",
+    "vitest-mock-extended": "^2.0.2"
   }
 }

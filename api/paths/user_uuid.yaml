@@ -1,0 +1,51 @@
+parameters:
+  - name: user_uuid
+    in: path
+    required: true
+    schema:
+      type: string
+      format: uuid
+get:
+  operationId: getUserByUuid
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/user.yaml
+    404:
+      description: NOT FOUND
+      content:
+        application/json:
+         $ref: ../schemas/error.yaml
+
+put:
+  operationId: updateUser
+  responses:
+    "201":
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              orders:
+                type: array
+                items:
+                  $ref: ../schemas/user.yaml
+    404:
+      description: NOT FOUND
+      content:
+        application/json:
+          $ref: ../schemas/error.yaml
+delete:
+  operationId: updateUserByUuid
+  responses:
+    "204":
+      description: NO CONTENT
+    404:
+      description: NOT FOUND
+      content:
+        application/json:
+          $ref: ../schemas/error.yaml

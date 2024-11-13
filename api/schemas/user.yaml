@@ -1,0 +1,9 @@
+type: object
+required:
+  - user_uuid
+# add more required fields
+properties:
+  user_uuid:
+    type: string
+    format: uuid
+# <TBD>.
