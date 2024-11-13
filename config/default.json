@@ -1,0 +1,16 @@
+{
+  "dbConfig": {
+    "username": "dbowner",
+    "password": "onlyindev",
+    "database": "tilawah",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "pool": {
+      "min": 2,
+      "max": 5,
+      "idle": 2000,
+      "acquire": 2000,
+      "evict": 2100
+    }
+  }
+}

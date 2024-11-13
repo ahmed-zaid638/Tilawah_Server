@@ -66,10 +66,7 @@ sequelize
   .then(() => {
     console.log('Database connected successfully.');
 
-    // In production, do NOT sync the models, we use migrations instead
-    if (process.env.NODE_ENV !== 'production') {
-      return sequelize.sync();
-    }
+    return sequelize.validate();
   })
   .then(() => {
     // SSL Certificate for production
