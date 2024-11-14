@@ -6,9 +6,9 @@ require('dotenv').config({ path: envPath });
 
 const config = {
     development: {
-        username: process.env.DB_USER || 'root',
-        password: process.env.DB_PASS || '',
-        database: process.env.DB_NAME || 'database_development',
+        username: process.env.DB_USER || 'tilawah',
+        password: process.env.DB_PASS || 'tilawah-pw',
+        database: process.env.DB_NAME || 'tilawah',
         host: process.env.DB_HOST || '127.0.0.1',
         dialect: 'postgres',
     },

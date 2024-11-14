@@ -34,3 +34,10 @@ db-:
 	yarn migration:undo
 
 db-clean: db-drop db-ci
+##TODO
+#test:
+#	make dev-db-docker
+#	make db-ci
+#	yarn test
+#	make dev-db-docker-delete
+
