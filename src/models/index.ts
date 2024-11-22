@@ -4,7 +4,6 @@ import config from '../config/config';
 
 const env = process.env.NODE_ENV || 'development';
 const dbConfig = (config as any)[env];
-
 const sequelize = new Sequelize({
   ...dbConfig,
   models: [path.join(__dirname, '/*.model.ts')], // Automatically loads all models
