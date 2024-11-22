@@ -1,5 +1,5 @@
-import {AutoIncrement, Column, DataType, Model, PrimaryKey, Table, Unique, HasMany} from "sequelize-typescript";
-import {UUID} from "crypto";
+import { AutoIncrement, Column, DataType, Model, PrimaryKey, Table, Unique, HasMany } from "sequelize-typescript";
+import { UUID } from "crypto";
 import UserRolePermission from "./user-role-permission.model";
 
 @Table({
@@ -9,7 +9,7 @@ import UserRolePermission from "./user-role-permission.model";
 export default class Permission extends Model<Permission> {
     @PrimaryKey
     @AutoIncrement
-    @Column({type: DataType.BIGINT, field: 'permission_id'})
+    @Column({ type: DataType.BIGINT, field: 'permission_id' })
     id!: number;
 
     @Unique

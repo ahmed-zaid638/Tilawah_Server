@@ -1,59 +1,36 @@
-// src/models/user.model.ts
-import { Table, Column, Model, DataType, BeforeCreate, BeforeUpdate, PrimaryKey, AutoIncrement, Unique, } from 'sequelize-typescript';
-import bcrypt from 'bcryptjs';
+import { Model, Table, Column, PrimaryKey, DataType, ForeignKey, BelongsTo } from 'sequelize-typescript';
+import Role from './user-role.model';
 
-@Table({
-    tableName: 'users',
-    timestamps: true, // Automatically adds createdAt and updatedAt
-})
-export default class User extends Model<User> {
+export type UserType = 'login_user' | 'social_login_user';
+
+@Table({ tableName: 'user_account', timestamps: false })
+export class User extends Model<User> {
     @PrimaryKey
-    @AutoIncrement
-    @Column(DataType.INTEGER)
+    @Column({ type: DataType.INTEGER, autoIncrement: true, field: 'user_id' })
     id!: number;
 
-    @Column({
-        type: DataType.STRING,
-        allowNull: false,
-    })
-    name!: string;
+    @Column({ type: DataType.UUID, unique: true, allowNull: false, field: 'user_uuid' })
+    uuid!: string;
 
-    @Unique
-    @Column({
-        type: DataType.STRING,
-        allowNull: false,
-        validate: {
-            isEmail: true,
-        },
-    })
-    email!: string;
+    @Column({ type: DataType.STRING(100), allowNull: false })
+    firstName!: string;
 
-    @Column({
-        type: DataType.STRING,
-        allowNull: false,
-    })
-    password!: string;
+    @Column({ type: DataType.STRING(100), allowNull: false })
+    lastName!: string;
 
-    @Column({
-        type: DataType.TEXT,
-        defaultValue: null,
-        field: 'profile_pic',
-    })
-    profilePic!: string | null;
+    @Column({ type: DataType.CHAR(1), allowNull: false })
+    gender!: string;
 
-    @Column({
-        type: DataType.STRING,
-        defaultValue: null,
-        field: 'google_id',
-    })
-    googleId!: string | null;
+    @Column({ type: DataType.DATE, allowNull: false })
+    dateOfBirth!: Date;
 
-    @BeforeCreate
-    @BeforeUpdate
-    static async hashPassword(instance: User) {
-        if (instance.changed('password')) {
-            const hashedPassword = await bcrypt.hash(instance.password, 12);
-            instance.password = hashedPassword;
-        }
-    }
+    @Column({ type: DataType.STRING(20), allowNull: false, field: 'user_type' })
+    type!: UserType;
+
+    @ForeignKey(() => Role)
+    @Column({ type: DataType.INTEGER, allowNull: false })
+    roleId!: number;
+
+    @BelongsTo(() => Role)
+    role!: Role;
 }
