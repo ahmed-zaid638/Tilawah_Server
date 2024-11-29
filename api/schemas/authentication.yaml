@@ -1,0 +1,71 @@
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Detailed error message
+        error_code:
+          type: string
+          description: Machine-readable error code
+      required:
+        - error
+
+    EmailLoginRequest:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+          example: user@example.com
+        password:
+          type: string
+          format: password
+          minLength: 8
+          example: "securePassword123!"
+
+    SocialLoginRequest:
+      type: object
+      required:
+        - provider
+        - token
+      properties:
+        provider:
+          type: string
+          enum:
+            - google
+            - facebook
+            - apple
+            - microsoft
+          description: Social login provider
+        token:
+          type: string
+          description: OAuth token from the social provider
+        device_token:
+          type: string
+          description: Optional device token for push notifications
+
+    LoginResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: JWT access token
+        refresh_token:
+          type: string
+          description: Token used to obtain new access tokens
+        user:
+          type: object
+          properties:
+            id:
+              type: string
+            email:
+              type: string
+              format: email
+            name:
+              type: string
+            # add more user properties here

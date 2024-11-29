@@ -1,0 +1,34 @@
+post:
+  summary: Refresh Access Token
+  description: Use refresh token to obtain a new access token
+  operationId: refreshToken
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - refresh_token
+          properties:
+            refresh_token:
+              type: string
+              description: Existing refresh token
+  responses:
+    "200":
+      description: Successfully refreshed token
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              access_token:
+                type: string
+              refresh_token:
+                type: string
+    "401":
+      description: Invalid or expired refresh token
+      content:
+        application/json:
+          schema:
+            $ref: "schemas/authentication.yaml#/components/schemas/ErrorResponse"

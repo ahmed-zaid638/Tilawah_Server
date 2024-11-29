@@ -1,0 +1,42 @@
+post:
+  summary: User Login
+  description: Authenticate user via email/password or social login
+  operationId: userLogin
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          oneOf:
+            - $ref: "schemas/authentication.yaml#/components/schemas/EmailLoginRequest"
+            - $ref: "schemas/authentication.yaml#/components/schemas/SocialLoginRequest"
+        discriminator:
+          propertyName: loginType
+          mapping:
+            email: "schemas/authentication.yaml#/components/schemas/EmailLoginRequest"
+            social: "schemas/authentication.yaml#/components/schemas/SocialLoginRequest"
+  responses:
+    "200":
+      description: Successful login
+      content:
+        application/json:
+          schema:
+            $ref: "schemas/authentication.yaml#/components/schemas/LoginResponse"
+    "400":
+      description: Invalid login credentials
+      content:
+        application/json:
+          schema:
+            $ref: "schemas/authentication.yaml#/components/schemas/ErrorResponse"
+    "401":
+      description: Authentication failed
+      content:
+        application/json:
+          schema:
+            $ref: "schemas/authentication.yaml#/components/schemas/ErrorResponse"
+    "429":
+      description: Too many login attempts
+      content:
+        application/json:
+          schema:
+            $ref: "schemas/authentication.yaml#/components/schemas/ErrorResponse"
