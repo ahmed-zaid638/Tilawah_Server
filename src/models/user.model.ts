@@ -1,7 +1,7 @@
 import { Model, Table, Column, PrimaryKey, DataType, ForeignKey, BelongsTo } from 'sequelize-typescript';
 import Role from './user-role.model';
 
-export type UserType = 'login_user' | 'social_login_user';
+export type UserType = 'LOGIN_USER' | 'SSO_LOGIN';
 
 @Table({ tableName: 'user_account', timestamps: false })
 export class User extends Model<User> {
