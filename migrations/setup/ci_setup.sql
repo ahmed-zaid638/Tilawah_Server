@@ -8,5 +8,7 @@ BEGIN
      CREATE USER "dbowner" WITH PASSWORD 'onlyindev';
      ALTER USER dbowner WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION;
   END IF;
+  CREATE EXTENSION IF NOT EXISTS pgroonga;
+  SET pgroonga.enable_wal = true;
 END
 $body$;

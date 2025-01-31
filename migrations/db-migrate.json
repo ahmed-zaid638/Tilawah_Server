@@ -4,8 +4,7 @@
     "driver": "pg",
     "user": "dbowner",
     "password": "onlyindev",
-    "host": "localhost",
-    "database": "tilawah"
+    "host": "localhost"
   },
   "sql-file": true
 }
