@@ -54,10 +54,9 @@ ifndef FILE
 	$(error FILE is required. Usage: make db-create-migrate-file FILE=<filename>)
 endif
 	@echo "Creating migration file: $(FILE)"
-	# Replace this with your actual migration command (e.g., using a tool like golang-migrate, Alembic, etc.)
 	@db-migrate create --config migrations/db-migrate.json --env $(ENV) create --sql-file $(FILE)
 
-# Helper target to show usage
+.PHONY: help
 help:
 	@echo "Usage:"
 	@echo "  make db-create-migrate-file FILE=<filename>"
