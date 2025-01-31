@@ -1,0 +1,13 @@
+type: object
+required:
+  - role_id
+  - role_uuid
+  - role_description
+properties:
+  role_id:
+    type: integer
+  role_uuid:
+    type: string
+    format: uuid
+  role_description:
+    type: string
