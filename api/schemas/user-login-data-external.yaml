@@ -1,0 +1,12 @@
+type: object
+required:
+  - userId
+  - externalProviderId
+  - externalProviderToken
+properties:
+  userId:
+    type: integer
+  externalProviderId:
+    type: integer
+  externalProviderToken:
+    type: string
