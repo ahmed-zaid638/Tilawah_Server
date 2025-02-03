@@ -1,0 +1,56 @@
+post:
+  summary: User login
+  operationId: loginUser
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          oneOf:
+            - type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+              required:
+                - email
+                - password
+            - type: object
+              properties:
+                externalProviderId:
+                  type: string
+                externalProviderToken:
+                  type: string
+              required:
+                - externalProviderId
+                - externalProviderToken
+  responses:
+    "200":
+      description: Login successful
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              token:
+                type: string
+    "201":
+      description: External user created and logged in successfully
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/external-user.yaml"
+    "400":
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/error.yaml"
+    "401":
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/error.yaml"

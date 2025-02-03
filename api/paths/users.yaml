@@ -1,1 +1,25 @@
 post:
+  summary: Create a new user
+  operationId: createUser
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: "../schemas/user.yaml"
+            - $ref: "../schemas/normal-user.yaml"
+            - $ref: "../schemas/user-login-data.yaml"
+  responses:
+    "201":
+      description: User created
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/user.yaml"
+    "400":
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/error.yaml"

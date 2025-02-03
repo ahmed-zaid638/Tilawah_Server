@@ -1,0 +1,6 @@
+type: object
+allOf:
+  - $ref: "./user.yaml"
+  - properties:
+      loginData:
+        $ref: "./user-login-data.yaml"

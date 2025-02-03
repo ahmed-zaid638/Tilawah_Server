@@ -1,9 +1,30 @@
 type: object
 required:
   - user_uuid
-# add more required fields
+  - firstName
+  - lastName
+  - gender
+  - dateOfBirth
+  - user_type
+  - roleId
 properties:
   user_uuid:
     type: string
     format: uuid
-# <TBD>.
+  firstName:
+    type: string
+  lastName:
+    type: string
+  gender:
+    type: string
+    enum: [M, F]
+  dateOfBirth:
+    type: string
+    format: date
+  user_type:
+    type: string
+    enum: [LOGIN_USER, SSO_LOGIN]
+  roleId:
+    type: integer
+  role:
+    $ref: "./role.yaml"

@@ -1,0 +1,12 @@
+type: object
+properties:
+  emailValidationStatusId:
+    type: integer
+    description: The unique identifier for the email validation status
+  statusDescription:
+    type: string
+    description: The description of the email validation status
+    maxLength: 20
+required:
+  - emailValidationStatusId
+  - statusDescription

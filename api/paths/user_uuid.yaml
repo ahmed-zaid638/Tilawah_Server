@@ -6,6 +6,7 @@ parameters:
       type: string
       format: uuid
 get:
+  summary: Get user by UUID
   operationId: getUserByUuid
   responses:
     "200":
@@ -13,39 +14,44 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../schemas/user.yaml
-    404:
-      description: NOT FOUND
-      content:
-        application/json:
-         $ref: ../schemas/error.yaml
-
-put:
-  operationId: updateUser
-  responses:
-    "201":
-      description: OK
+            $ref: "../schemas/user.yaml"
+    "404":
+      description: User not found
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              orders:
-                type: array
-                items:
-                  $ref: ../schemas/user.yaml
-    404:
-      description: NOT FOUND
+            $ref: "../schemas/error.yaml"
+put:
+  summary: Update user by UUID
+  operationId: updateUserByUuid
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/user.yaml"
+  responses:
+    "200":
+      description: User updated
       content:
         application/json:
-          $ref: ../schemas/error.yaml
+          schema:
+            $ref: "../schemas/user.yaml"
+    "404":
+      description: User not found
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/error.yaml"
 delete:
-  operationId: updateUserByUuid
+  summary: Delete user by UUID
+  operationId: deleteUserByUuid
   responses:
     "204":
-      description: NO CONTENT
-    404:
-      description: NOT FOUND
+      description: No content
+    "404":
+      description: User not found
       content:
         application/json:
-          $ref: ../schemas/error.yaml
+          schema:
+            $ref: "../schemas/error.yaml"
