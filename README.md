@@ -22,7 +22,7 @@ tilawah-server/
 │
 ├── dist/                      # Compiled JavaScript files
 ├── node_modules/               # Dependencies
-├── src/                        # Main source code
+├── src/                        # Main sourcs code
 │   ├── config/                 # Configuration files
 │   ├── controllers/            # Controllers (business logic)
 │   ├── middlewares/            # Middlewares (e.g., authentication)
