@@ -1,0 +1,6 @@
+type: object
+allOf:
+  - $ref: "./user.yaml"
+  - properties:
+      externalLoginData:
+        $ref: "./user-login-data-external.yaml"

@@ -1,17 +1,30 @@
 openapi: 3.0.1
 info:
   title: Tilawah app
-  description: Tialwah app
+  description: Tilawah app
   license:
     name: <TBD>
   version: 0.0.1
 servers:
-  - url: http://Tialwahapp.com
+  - url: http://Tilawahapp.com
 paths:
   /users/login:
-    $ref: ./paths/users_login.yaml
+    $ref: "./paths/users_login.yaml"
   /users:
-    $ref: ./paths/users.yaml
+    $ref: "./paths/users.yaml"
   /users/{user_uuid}:
-    $ref: ./paths/user_uuid.yaml
-# ABed alhameed social login
+    $ref: "./paths/user_uuid.yaml"
+components:
+  schemas:
+    User:
+      $ref: "./schemas/user.yaml"
+    NormalUser:
+      $ref: "./schemas/normal-user.yaml"
+    ExternalUser:
+      $ref: "./schemas/external-user.yaml"
+    UserLoginData:
+      $ref: "./schemas/user-login-data.yaml"
+    UserLoginDataExternal:
+      $ref: "./schemas/user-login-data-external.yaml"
+    Error:
+      $ref: "./schemas/error.yaml"

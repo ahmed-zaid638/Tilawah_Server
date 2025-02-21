@@ -1,0 +1,26 @@
+type: object
+required:
+  - userId
+  - loginName
+  - passwordHash
+  - emailAddress
+  - emailValidationStatusId
+properties:
+  userId:
+    type: integer
+  loginName:
+    type: string
+  passwordHash:
+    type: string
+  emailAddress:
+    type: string
+    format: email
+  confirmationToken:
+    type: string
+  tokenGenerationTime:
+    type: string
+    format: date-time
+  emailValidationStatusId:
+    type: integer
+  emailValidationStatus:
+    $ref: "./email-validation-status.yaml"
